@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./api";
+
+package api;
+
+service Servicer{
+    rpc TestIt(Inp) returns (Inp);
+}
+
+message Inp{
+    uint32 first = 3;
+    uint64 second = 4;
+}
+
+
+
+
+/* CODEGEN COMMANDS:
+Go:
+protoc bin/api/api.proto --go-grpc_out=. --go_out=.
+Dart:
+protoc bin/api/api.proto --dart_out=grpc:.
+*/
